@@ -27,7 +27,7 @@ sudo ./aws/install
 aws --version
 ```
 2. Installing Docker
-   # Add Docker's official GPG key:
+   #### Add Docker's official GPG key:
 ```bash
         sudo apt-get update
         sudo apt-get install ca-certificates curl
@@ -47,7 +47,7 @@ sudo apt-get update
 ```bash
 sudo apt install docker.io -y
 ```
-### Adding Permission
+#### Adding Permission
 
 ```bash
 sudo usermod -aG docker $USER && newgrp docker
