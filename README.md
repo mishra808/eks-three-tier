@@ -96,7 +96,7 @@ kubectl get nodes
 #### Creating secret for private image ecr
 
 ```bash
-    kubectl create secret generic mysecret \
+    kubectl create secret generic ecrsecret \
     --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
-    --type=kubernetes.io/dockerconfigjson
+    --type=kubernetes.io/dockerconfigjson -n three-tier
 ```
