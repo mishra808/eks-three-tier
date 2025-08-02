@@ -57,17 +57,25 @@ sudo usermod -aG docker $USER && newgrp docker
 aws configure
 ```
 
-## Installing Kubectl
-#### Kubernetes 1.33 (https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl)
-```bash
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/darwin/amd64/kubectl
+3. Installing Kubectl
+    #### Kubernetes 1.33 (https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl)
+    ```bash
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/darwin/amd64/kubectl
 
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/darwin/amd64/kubectl.sha256
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/darwin/amd64/kubectl.sha256
 
-chmod +x ./kubectl
+    chmod +x ./kubectl
 
-mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+    mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 
-echo 'export PATH=$HOME/bin:$PATH' >> ~/.bash_profile
-```
+    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bash_profile
+    ```
+
+4. Installing eksctl
+
+    ```bash
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    sudo mv /tmp/eksctl /usr/local/bin
+    eksctl version
+    ```
 
