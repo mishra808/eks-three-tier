@@ -87,7 +87,16 @@ aws --version
 ## Creating EKS Cluster
 
 ```bash
-eksctl create cluster --name three-tier-cluster --region us-east-1 --node-type t2.micro --nodes-min 2 --nodes-max 2
-aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
+eksctl create cluster --name eks-three-tier-cluster --region us-east-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
+aws eks update-kubeconfig --region us-east-1 --name three-tier-cluster
 kubectl get nodes
+```
+## Deploying the Kubernetes mainifest files
+
+#### Creating secret for private image ecr
+
+```bash
+    kubectl create secret generic mysecret \
+    --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+    --type=kubernetes.io/dockerconfigjson
 ```
