@@ -10,8 +10,9 @@ spec:
   replicas: 2
   strategy:
     type: RollingUpdate
-    maxSurge: 1
-    maxUnavailable: 25%
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   selector: 
     matchLabels:
       role: api
@@ -21,15 +22,13 @@ spec:
         role: api
     spec:
       imagePullSecrets:
-      - name: ecr-registry-secret
+      - name: ecrsecret
       containers:
       - name: api
         image: 646535719493.dkr.ecr.us-east-1.amazonaws.com/eks-three-tier-backend:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 3500
-        imagePullSecrets:
-          - name: ecrsecret
         env:
           - name: MONGO_CONN_STR
             value: mongodb://mongodb-svc:27017/todo?directConnection=true
