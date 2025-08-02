@@ -15,14 +15,14 @@ spec:
     spec: 
       containers:
       - name: mongo
-        image: mongo
+        image: mongo:4.4.6
         livenessProbe:
           exec:
             command:
-              # - mongo
-              # - --disableImplicitSessions
-              # - --eval
-              # - "db.adminCommand('ping')"
+              - mongo
+              - --disableImplicitSessions
+              - --eval
+              - "db.adminCommand('ping')"
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
