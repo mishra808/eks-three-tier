@@ -45,7 +45,7 @@ aws --version
     sudo apt-get update
 ```
 ```bash
-sudo apt install docker.io -y
+    sudo apt install docker.io -y
 ```
 #### Adding Permission
 
@@ -79,3 +79,15 @@ sudo apt install docker.io -y
     eksctl version
     ```
 
+## Creating ECR repositories
+
+1. Create ECR for frontend and push image
+2. Create ECR for backend and push image 
+
+## Creating EKS Cluster
+
+```bash
+eksctl create cluster --name three-tier-cluster --region us-east-1 --node-type t2.micro --nodes-min 2 --nodes-max 2
+aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
+kubectl get nodes
+```
