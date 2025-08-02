@@ -29,20 +29,20 @@ aws --version
 2. Installing Docker
    #### Add Docker's official GPG key:
 ```bash
-        sudo apt-get update
-        sudo apt-get install ca-certificates curl
-        sudo install -m 0755 -d /etc/apt/keyrings
-        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-        sudo chmod a+r /etc/apt/keyrings/docker.asc
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
     Add the repository to Apt sources:
 ```bash
-        echo \
-        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-        $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
 ```
 ```bash
 sudo apt install docker.io -y
@@ -50,11 +50,11 @@ sudo apt install docker.io -y
 #### Adding Permission
 
 ```bash
-sudo usermod -aG docker $USER && newgrp docker
+    sudo usermod -aG docker $USER && newgrp docker
 ```
 #### Configure AWS Access key and Scret key
 ```bash
-aws configure
+    aws configure
 ```
 
 3. Installing Kubectl
