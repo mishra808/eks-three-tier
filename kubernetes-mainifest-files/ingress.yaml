@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    #- host: example.com
+    - host: eks-app.rahulapps.com
       http:
         paths:
           - path: /api
