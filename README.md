@@ -110,7 +110,7 @@ kubectl get nodes
 1. Creating policy
 
 ```bash
-    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
+    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/a2e02479398b9f637c978db5081bb1775d65798b/docs/install/iam_policy.json
     aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
 ```
 2. attaching policy to cluster via util
@@ -135,5 +135,5 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
 ```bash
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
-
-kubectl apply -f full_stack_lb.yaml
+#### Delete
+eksctl delete cluster --name eks-three-tier-cluster --region us-east-1
